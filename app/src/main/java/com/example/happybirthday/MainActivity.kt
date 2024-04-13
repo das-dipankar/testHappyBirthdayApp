@@ -94,8 +94,8 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             color = Color.Red,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .background(color = Color.LightGray)
-                .alpha(0.5F)
+//                .background(color = Color.LightGray)
+//                .alpha(0.5F)
                 .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
         )
         Text(
@@ -103,10 +103,10 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             fontSize = 30.sp,
             lineHeight = 35.sp,
             modifier = Modifier
-                .background(color = Color.DarkGray)
+//                .background(color = Color.DarkGray)
                 .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
                 .align(Alignment.CenterHorizontally)
-                .alpha(0.5F)
+//                .alpha(0.5F)
         )
     }
 }
