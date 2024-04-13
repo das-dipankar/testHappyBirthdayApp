@@ -1,8 +1,6 @@
 package com.example.happybirthday
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,6 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.ui.layout.ContentScale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,8 +38,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     GreetingImage(
                         message = "Happy Birthday Sam!",
-                        from = "From Emma",
-//            modifier = Modifier.padding(8.dp).background(color = Color.Blue)
+                        from = "From Emma"
                     )
                 }
             }
@@ -53,7 +53,9 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
     Box(modifier) {
         Image(
             painter = image,
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.5F
         )
         GreetingText(
             message = message,
@@ -65,6 +67,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
     }
 }
 
+@Preview(showBackground = true )
 @Preview(showBackground = true, showSystemUi = true, name = "Dipankar" )
 @Composable
 fun GreetingImagePreview() {
@@ -102,7 +105,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     }
 }
 
-//@Preview(showBackground = true )
+@Preview(showBackground = true )
 @Preview(showBackground = true, showSystemUi = true, name = "Dipankar" )
 @Composable
 fun BirthdayCardPreview() {
