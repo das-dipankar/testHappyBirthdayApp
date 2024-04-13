@@ -24,7 +24,9 @@ import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,8 +75,8 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 fun GreetingImagePreview() {
     HappyBirthdayTheme {
         GreetingImage(
-            message = "Happy Birthday Sam!",
-            from = "From Emma",
+            message = stringResource(R.string.happy_birthday_text),
+            from = stringResource(R.string.signature_text),
 //            modifier = Modifier.padding(8.dp).background(color = Color.Blue)
         )
     }
@@ -82,7 +84,7 @@ fun GreetingImagePreview() {
 @Composable
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
     Column(
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier
     ) {
         Text(
@@ -91,16 +93,20 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             lineHeight = 112.sp,
             color = Color.Red,
             textAlign = TextAlign.Center,
-//            modifier = Modifier.background(color = Color.LightGray)
+            modifier = Modifier
+                .background(color = Color.LightGray)
+                .alpha(0.5F)
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
         )
         Text(
             text = from,
             fontSize = 30.sp,
             lineHeight = 35.sp,
             modifier = Modifier
-//                .background(color = Color.DarkGray)
-                .padding(16.dp)
-                .align(Alignment.End)
+                .background(color = Color.DarkGray)
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
+                .align(Alignment.CenterHorizontally)
+                .alpha(0.5F)
         )
     }
 }
